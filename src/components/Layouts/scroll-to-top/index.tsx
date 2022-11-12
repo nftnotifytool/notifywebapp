@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Button } from 'antd';
 import { RiArrowUpLine } from 'react-icons/ri';
-import ScrollToTop from "react-scroll-up";
+import ScrollToTop from 'react-scroll-up';
 
 export default function ScrollTop() {
   return (

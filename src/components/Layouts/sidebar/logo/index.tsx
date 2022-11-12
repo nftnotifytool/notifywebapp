@@ -24,22 +24,22 @@ export default function MenuLogo(props: any) {
         {
           props.small ? (
             customise.theme == "light" ? (
-              <img className="hp-logo" src={logoSmall} alt="logo" />
+              <img className="hp-logo" src={logoSmall.src} alt="logo" />
             ) : (
-              <img className="hp-logo" src={logoSmallDark} alt="logo" />
+              <img className="hp-logo" src={logoSmallDark.src} alt="logo" />
             )
           ) : (
             customise.direction == "rtl" ? (
               customise.theme == "light" ? (
-                <img className="hp-logo" src={logoRTL} alt="logo" />
+                <img className="hp-logo" src={logoRTL.src} alt="logo" />
               ) : (
-                <img className="hp-logo" src={logoRTLDark} alt="logo" />
+                <img className="hp-logo" src={logoRTLDark.src} alt="logo" />
               )
             ) : (
               customise.theme == "light" ? (
-                <img className="hp-logo" src={logo} alt="logo" />
+                <img className="hp-logo" src={logo.src} alt="logo" />
               ) : (
-                <img className="hp-logo" src={logoDark} alt="logo" />
+                <img className="hp-logo" src={logoDark.src} alt="logo" />
               )
             )
           )

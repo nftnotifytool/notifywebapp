@@ -26,7 +26,7 @@ export default function MenuItem(props: any) {
         icon={item.icon}
         onClick={onClose}
       >
-        <Link href={item.navLink}>{item.title}</Link>
+        { item.navLink ? (<Link href={item.navLink}>{item.title}</Link>) : <span>{item.title}</span> }
       </Menu.Item>
     );
   })
