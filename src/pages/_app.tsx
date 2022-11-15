@@ -8,7 +8,9 @@ import "antd/dist/antd.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
       <Provider store={store} >
-        <Layouts {...pageProps} />
+        <Layouts>
+          <Component {...pageProps} />
+        </Layouts>
       </Provider>
   )
 }
