@@ -25,12 +25,11 @@ const Layouts: FC<any> = (props) => {
             <Row justify="center">
               {
                 customise.contentWidth === "full" && (
-                  <Col xxl={17} xl={22} span={24}>
+                  <Col xl={22} span={24}>
                     {children}
                   </Col>
                 )
               }
-
               {
                 customise.contentWidth === "boxed" && (
                   <Col className="hp-w-100" style={{ maxWidth: 936 }}>
