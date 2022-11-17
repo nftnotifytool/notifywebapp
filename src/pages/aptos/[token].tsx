@@ -4,6 +4,9 @@ import {useEffect, useState} from "react";
 import Head from "next/head";
 import {Col, Row} from "antd";
 import PageContent from "../../components/Layouts/page-content";
+import NftList from "../../components/nfts/nftList";
+const title = 'Nfts In Wallet';
+
 async function getNftsInWallet(tokenAddress: any) {
   try {
     const response = await axios.get('http://localhost:3049/v1/nfts-wallet/' + tokenAddress)
@@ -25,7 +28,16 @@ const AptosTokenPage = () => {
     (async () => {
       if (token) {
         const response = await getNftsInWallet(token);
-        setData(response);
+        const newData = response.map((item: any) => {
+          return {
+            bg: item.bg,
+            title: item.collection_name,
+            lastBid: item.name,
+            price: null,
+            avatars: []
+          }
+        })
+        setData(newData);
       }
     })()
   }, [token])
@@ -33,24 +45,25 @@ const AptosTokenPage = () => {
   return (
     <>
       <Head>
-        <title>Nfts In Wallet</title>
+        <title>{ title }</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Row gutter={[32, 32]}>
         <Col span={24}>
           <PageContent
-            title="Nfts In Wallet"
+            title={title}
             breadcrumb={[
               {
                 title: "Pages",
               },
               {
-                title: "Nfts In Wallet",
+                title,
               }
             ]}
           />
         </Col>
       </Row>
+      <NftList items={data} />
     </>
   )
 }

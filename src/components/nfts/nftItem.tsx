@@ -62,7 +62,7 @@ export default function NftItem(props: PropNftItemType) {
 
           {
             item.lastBid && (
-              <span className="hp-d-block hp-p1-body hp-text-color-black-80 hp-text-color-dark-20">Last Bid: {item.lastBid}</span>
+              <span className="hp-d-block hp-p1-body hp-text-color-black-80 hp-text-color-dark-20">{item.lastBid}</span>
             )
           }
         </Col>

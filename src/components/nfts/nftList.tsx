@@ -1,6 +1,13 @@
 import NftItem from "./nftItem";
+import {Col, Row} from "antd";
 
 export default function NftList(prop: any) {
   const { items } = prop;
-  return items.map((item: any, index: number) => <NftItem item={item} key={index} />)
+  return (
+    <Row gutter={[32, 32]}>
+      {
+        items.map((item: any, index: number) => (<Col md={8} span={24} className="hp-p-16"><NftItem item={item} key={index} /></Col>))
+      }
+    </Row>
+  )
 }
