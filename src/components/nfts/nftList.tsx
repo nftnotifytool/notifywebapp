@@ -6,7 +6,11 @@ export default function NftList(prop: any) {
   return (
     <Row gutter={[32, 32]}>
       {
-        items.map((item: any, index: number) => (<Col md={8} span={24} className="hp-p-16"><NftItem item={item} key={index} /></Col>))
+        items.map((item: any, index: number) => (
+          <Col md={8} span={24} className="hp-p-16" key={index}>
+            <NftItem item={item} />
+          </Col>)
+        )
       }
     </Row>
   )

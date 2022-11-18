@@ -44216,3 +44216,16 @@ body.dark .hp-analytics-visiters-chart .apexcharts-text {
 body.dark .hp-chart-text-color .apexcharts-text {
   fill: #707070 !important;
 }
+.app-detail-nft-item {
+  margin: 16px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.description {
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.description .title {
+  font-size: 18px;
+}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import { Row, Col, Avatar, Button, Divider } from "antd";
-import { TimeSquare } from "react-iconly";
 import { RiHeartFill } from "react-icons/ri";
+import Link from "next/link";
 
 type PropNftItemType = {
   item: any;
@@ -76,7 +76,9 @@ export default function NftItem(props: PropNftItemType) {
 
       <Row align="middle" justify="space-between">
         <Col className="hp-ml-12">
-          <Button type="primary" className="hp-border-radius-full">Place Bid</Button>
+          <Button type="primary" className="hp-border-radius-full">
+            <Link href={item.link}>Place Bid</Link>
+          </Button>
         </Col>
       </Row>
     </div>
