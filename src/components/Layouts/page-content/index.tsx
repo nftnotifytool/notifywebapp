@@ -55,7 +55,7 @@ export default function PageContent(props: any) {
                     </Breadcrumb.Item>
 
                     {
-                      breadcrumb.map((item, index) => (
+                      breadcrumb.map((item: any, index: number) => (
                         <Breadcrumb.Item key={index}>
                           <Link href={item.link ? item.link : '#'} className={`hp-text-color-black-0${item.link ? ' hp-hover-text-color-primary-2' : ''}`}>{item.title}</Link>
                         </Breadcrumb.Item>
