@@ -8,7 +8,8 @@ const nftItem = {
   title: "Perfect Mess 1",
   lastBid: "1.44 ETH",
   price: "$4,852.23",
-  avatars: []
+  avatars: [],
+  link: 'hello',
 };
 export default function Home() {
   return (

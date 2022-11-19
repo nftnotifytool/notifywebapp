@@ -6,11 +6,13 @@ import {Col, Pagination, Row} from "antd";
 import PageContent from "../../components/Layouts/page-content";
 import NftList from "../../components/nfts/nftList";
 import NftsLoading from "components/nfts/nftsLoading";
+import ErrorPage from 'next/error';
+
 const title = 'Nfts In Wallet';
 
 async function getNftsInWallet(tokenAddress: any, page = 1) {
   try {
-    const response = await axios.get('http://localhost:3050/v1/nfts-wallet/' + tokenAddress, {
+    const response = await axios.get(process.env.NEXT_PUBLIC_ENDPOINT + '/v1/nfts-wallet/' + tokenAddress, {
       params: {
         page,
       }
@@ -45,9 +47,10 @@ const AptosTokenPage = () => {
   const router = useRouter();
   const { token } = router.query;
   const [data, setData] = useState<[]>([]);
-  const [totalPage, setTotalPage] = useState<number>(10);
+  const [totalPage, setTotalPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const changePage = (page: number, pageSize: number) => {
     setCurrentPage(page);
@@ -56,21 +59,25 @@ const AptosTokenPage = () => {
   useEffect(() => {
     (async () => {
       if (token) {
-        setIsLoading(true);
-        const response = await getNftsInWallet(token, currentPage);
-        const newData = response.data ? response.data.map((item: any) => {
-          return {
-            bg: item.bg,
-            title: item.collection_name,
-            lastBid: item.name,
-            price: null,
-            avatars: [],
-            link: '/nfts/aptos/'+item.token_data_id_hash,
-          }
-        }) : [];
-        setData(newData);
-        setTotalPage(response.total);
-        setIsLoading(false);
+        try {
+          setIsLoading(true);
+          const response = await getNftsInWallet(token, currentPage);
+          const newData = response.data ? response.data.map((item: any) => {
+            return {
+              bg: item.bg,
+              title: item.collection_name,
+              lastBid: item.name,
+              price: null,
+              avatars: [],
+              link: '/nfts/aptos/'+item.token_data_id_hash,
+            }
+          }) : [];
+          setData(newData);
+          setTotalPage(response.total);
+          setIsLoading(false);
+        } catch (e) {
+          setIsError(true);
+        }
       }
     })()
   }, [token, currentPage])
@@ -81,27 +88,34 @@ const AptosTokenPage = () => {
         <title>{ title }</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Row gutter={[32, 32]}>
-        <Col span={24}>
-          <PageContent
-            title={title}
-            breadcrumb={[
-              {
-                title: "Pages",
-              },
-              {
-                title,
-              }
-            ]}
-          />
-        </Col>
-      </Row>
       {
-        isLoading ? <NftsLoading /> : <NftList items={data} />
+        isError ? <ErrorPage statusCode={404} /> : (
+          <>
+          <Row gutter={[32, 32]}>
+            <Col span={24}>
+              <PageContent
+                title={title}
+                breadcrumb={[
+                  {
+                    title: "Pages",
+                  },
+                  {
+                    title,
+                  }
+                ]}
+              />
+            </Col>
+          </Row>
+          {
+            isLoading ? <NftsLoading /> : <NftList items={data} />
+          }
+          <Row gutter={[32, 32]}>
+            <Pagination defaultCurrent={1} total={totalPage} defaultPageSize={6} onChange={changePage} />
+          </Row>
+          </>
+        )
       }
-      <Row gutter={[32, 32]}>
-        <Pagination defaultCurrent={1} total={totalPage} defaultPageSize={6} onChange={changePage} />
-      </Row>
+      
     </>
   )
 }

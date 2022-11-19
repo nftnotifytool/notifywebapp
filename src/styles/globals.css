@@ -44229,3 +44229,24 @@ body.dark .hp-chart-text-color .apexcharts-text {
 .description .title {
   font-size: 18px;
 }
+.properties {
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+
+.properties .title {
+  font-size: 18px;
+}
+
+.item {border: 1px solid #ddd;padding: 16px;border-radius: 10px;text-align: center;}
+
+
+.item__label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item__content {
+  margin-bottom: 0px;
+}

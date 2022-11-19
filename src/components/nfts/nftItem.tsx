@@ -77,7 +77,7 @@ export default function NftItem(props: PropNftItemType) {
       <Row align="middle" justify="space-between">
         <Col className="hp-ml-12">
           <Button type="primary" className="hp-border-radius-full">
-            <Link href={item.link}>Place Bid</Link>
+            { item.link ? <Link href={item.link}>Place Bid</Link> : '' }
           </Button>
         </Col>
       </Row>
