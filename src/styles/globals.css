@@ -44250,3 +44250,28 @@ body.dark .hp-chart-text-color .apexcharts-text {
 .item__content {
   margin-bottom: 0px;
 }
+.avatar-nft {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-nft--image {
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #e3f8f8;
+    overflow: hidden;
+}
+
+.avatar-nft--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.avatar-nft--title {
+    color: rgb(4, 17, 29);
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    margin-left: 8px;
+}

@@ -26,23 +26,6 @@ async function getNftsInWallet(tokenAddress: any, page = 1) {
   }
 }
 
-async function fetchData(token: string, page = 1) {
-  const response = await getNftsInWallet(token);
-  const newData = response.data ? response.data.map((item: any) => {
-    return {
-      bg: item.bg,
-      title: item.collection_name,
-      lastBid: item.name,
-      price: null,
-      avatars: []
-    }
-  }) : [];
-  return {
-    data: newData,
-    total: response.total,
-  }
-}
-
 const AptosTokenPage = () => {
   const router = useRouter();
   const { token } = router.query;
