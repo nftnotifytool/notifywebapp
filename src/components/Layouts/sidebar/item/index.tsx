@@ -16,9 +16,6 @@ export default function MenuItem(props: any) {
   const dispatch = useDispatch()
 
   const menuItem = navigation.map((item, index) => {
-    if (item.header) {
-      return <Menu.ItemGroup key={index} title={item.header}></Menu.ItemGroup>;
-    }
 
     return (
       <Menu.Item
