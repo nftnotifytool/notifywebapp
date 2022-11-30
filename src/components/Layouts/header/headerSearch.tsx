@@ -8,7 +8,7 @@ export default function HeaderSearch(props: any) {
     <div>
       <Input
         {...props}
-        placeholder="Search by wallet..."
+        placeholder="Paste your wallet to tracking NFT items..."
         prefix={
           <SearchNormal1 size="22" className="hp-text-color-black-80 hp-text-color-dark-20" />
         }
