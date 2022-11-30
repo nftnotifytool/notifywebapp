@@ -62,25 +62,25 @@ export default function HomeView() {
       title: 'VOLUME',
       dataIndex: 'total_volume',
       key: 'total_volume',
-      render: (text: number, record: any) => <Title level={4}>{text.toFixed(4)} {record.chain}</Title>
+      render: (text: number, record: any) => <Title level={5}>{text.toFixed(4)} {record.chain}</Title>
     },
     {
       title: 'FLOOR PRICE',
       dataIndex: 'floor_price',
       key: 'floor_price',
-      render: (text: number, record: any) => <Title level={4}>{text.toFixed(4)} {record.chain}</Title>
+      render: (text: number, record: any) => <Title level={5} type="warning">{text.toFixed(4)} {record.chain}</Title>
     },
     {
       title: 'ITEMS',
       dataIndex: 'floor_apply',
       key: 'floor_apply',
-      render: (text: number) => <Title level={4}>{text}</Title>
+      render: (text: number) => <Title level={5}>{text}</Title>
     },
     {
       title: 'OWNERS',
       dataIndex: 'owners',
       key: 'owners',
-      render: (text: number) => <Title level={4}>{text}</Title>
+      render: (text: number) => <Title level={5}>{text}</Title>
     },
   ];
 
