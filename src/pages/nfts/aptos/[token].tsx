@@ -17,7 +17,11 @@ type ItemDefaultType = {
   properties?: any;
   royalty_points_numerator: number;
   royalty_points_denominator: number;
-  attributes?: any;
+  attributes: any;
+  floor_price: number | null;
+  total_volume: number | null;
+  floor_apply: string | null;
+  owners: string | null;
 }
 
 export default function NftsAptosTokenPage() {
@@ -69,6 +73,33 @@ export default function NftsAptosTokenPage() {
                     <span className="hp-ml-4 hp-text-color-black-80 hp-text-color-dark-30"> { royalty }%</span>
                   </span>
 
+                  <Divider />
+                  <Row gutter={[24, 24]}>
+                    <Col md={12} span={24}>
+                      <div className="info-price">
+                        <label className="info-price__content">{ item?.total_volume ? +item?.total_volume.toFixed(3) : 0 } APTOS</label>
+                        <label className="info-price__label">Total Volume</label>
+                      </div>
+                    </Col>
+                    <Col md={12} span={24}>
+                      <div className="info-price">
+                        <label className="info-price__content">{ item?.floor_price ? +item?.floor_price.toFixed(3) : 0 } APTOS</label>
+                        <label className="info-price__label">Floor Price</label>
+                      </div>
+                    </Col>
+                    <Col md={12} span={24}>
+                      <div className="info-price">
+                        <label className="info-price__content">{ item?.owners }</label>
+                        <label className="info-price__label">Owners</label>
+                      </div>
+                    </Col>
+                    <Col md={12} span={24}>
+                      <div className="info-price">
+                        <label className="info-price__content">{ item?.floor_apply }</label>
+                        <label className="info-price__label">Floor Apply</label>
+                      </div>
+                    </Col>
+                  </Row>
                   <Divider />
                   {
                     item?.description ? (<Row gutter={[24, 24]}>
