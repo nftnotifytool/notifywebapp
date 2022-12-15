@@ -96,7 +96,7 @@ export default function NftsAptosTokenPage() {
                     <Col md={12} span={24}>
                       <div className="info-price">
                         <label className="info-price__content">{ item?.floor_apply }</label>
-                        <label className="info-price__label">Floor Apply</label>
+                        <label className="info-price__label">Total Apply</label>
                       </div>
                     </Col>
                   </Row>
@@ -178,50 +178,6 @@ export default function NftsAptosTokenPage() {
                           Add New Sale Alert
                         </Button>
                       </Link>
-                    </Col>
-                  </Row>
-                  <Divider />
-
-                  <Row gutter={[24, 24]}>
-                    <Col md={10} span={24}>
-                      <Row align="middle">
-                        <Col
-                          className="hp-border-radius-full hp-bg-color-primary-4 hp-d-flex-full-center hp-mr-8"
-                          style={{ width: 36, height: 36 }}
-                        >
-                          <RiShieldLine className="hp-text-color-primary-1" size={24} />
-                        </Col>
-
-                        <Col>
-                          <span className="hp-d-block hp-p1-body hp-font-weight-500 hp-text-color-black-100 hp-text-color-dark-0">
-                            1 Year Warranty
-                          </span>
-
-                          <span className="hp-d-block hp-input-description hp-font-weight-400 hp-text-color-black-80 hp-text-color-dark-30">
-                            Lorem Ipsum Dolor Sıt Amet
-                          </span>
-                        </Col>
-                      </Row>
-                    </Col>
-
-                    <Col md={10} span={24}>
-                      <Row align="middle">
-                        <Col
-                          className="hp-border-radius-full hp-bg-color-primary-4 hp-d-flex-full-center hp-mr-8"
-                          style={{ width: 36, height: 36 }}
-                        >
-                          <RiTimeLine className="hp-text-color-primary-1" size={24} />
-                        </Col>
-
-                        <Col>
-                          <span className="hp-d-block hp-p1-body hp-font-weight-500 hp-text-color-black-100 hp-text-color-dark-0">
-                            14 Days Replacement
-                          </span>
-                          <span className="hp-d-block hp-input-description hp-font-weight-400 hp-text-color-black-80 hp-text-color-dark-30">
-                            Lorem Ipsum Dolor Sıt Amet
-                          </span>
-                        </Col>
-                      </Row>
                     </Col>
                   </Row>
                 </Col>
