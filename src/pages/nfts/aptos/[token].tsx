@@ -96,7 +96,7 @@ export default function NftsAptosTokenPage() {
                     <Col md={12} span={24}>
                       <div className="info-price">
                         <label className="info-price__content">{ item?.floor_apply }</label>
-                        <label className="info-price__label">Total Apply</label>
+                        <label className="info-price__label">Total Supply</label>
                       </div>
                     </Col>
                   </Row>

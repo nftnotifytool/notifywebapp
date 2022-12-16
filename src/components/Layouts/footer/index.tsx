@@ -8,7 +8,7 @@ export default function MenuFooter() {
       <Row align="middle" justify="space-between">
         <Col md={12} span={24}>
           <p className="hp-badge-text hp-font-weight-600 hp-mb-0 hp-text-color-dark-30">
-            COPYRIGHT ©2022 NFT-ALERT, All rights Reserved
+            COPYRIGHT ©2022 NFTNotifyTool, All rights Reserved
           </p>
         </Col>
       </Row>
