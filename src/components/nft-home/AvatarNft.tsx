@@ -10,7 +10,7 @@ export default function AvatarNft(props: AvatarNftPropsType) {
       <span className="avatar-nft--image">
         <img src={avatar} alt={name} width="70px" />
       </span>
-      <a href={link} target="_blank"><span className="avatar-nft--title">{name}</span></a>
+      <a href={link} target="_blank" rel="noreferrer"><span className="avatar-nft--title">{name}</span></a>
     </div>
   )
 }
