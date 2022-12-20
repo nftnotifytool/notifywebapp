@@ -15,6 +15,7 @@ const fetchData = async ({page = 1, limit = 10}) => {
       }
     })
     if (response.data) {
+      //console.log(response.data);
       return response.data;
     }
     return null;
@@ -54,9 +55,15 @@ export default function HomeView() {
   const columns = [
     {
       title: 'COLLECTION',
-      dataIndex: ['name', 'image'],
+      dataIndex: ['name', 'image', 'link_collection'],
       key: 'name',
-      render: (name: string, record: any) => <AvatarNft name={record.name} avatar={record.image} />
+      render: (name: string, record: any) => <AvatarNft name={record.name} avatar={record.image} link={record.link_collection} />
+    },
+    {
+      title: 'CODE NAME',
+      dataIndex: 'symbol',
+      key: 'symbol',
+      render: (text: number) => <Title level={5}>{text}</Title>
     },
     {
       title: 'VOLUME',
@@ -88,7 +95,7 @@ export default function HomeView() {
     <Card className="hp-border-color-black-40" style={{marginTop: '24px'}}>
       <Row>
         <Col className="hp-mb-16" lg={12} span={20}>
-          <h4>ETH NFTS</h4>
+          <h4>Top / Trending NFTs</h4>
         </Col>
         <Col span={24}>
           <Table columns={columns} dataSource={data} scroll={{ x: 500 }} pagination={pagination} onChange={handleTableChange} loading={isLoading} />
